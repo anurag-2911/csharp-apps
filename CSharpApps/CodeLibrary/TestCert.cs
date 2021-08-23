@@ -15,8 +15,11 @@ namespace CodeLibrary
             string pfxFilePath = @"C:\work\data\userstory\msix\cert\mycert.pfx";
             string certFilePath = @"C:\work\data\userstory\msix\cert\mycert.cer";
             CreateCertificate(certFilePath,pfxFilePath);
-            AddCertToStore(certFilePath);
-            //AddCert();
+            X509Store store = new X509Store("teststore", StoreLocation.LocalMachine);
+            X509Certificate2 certificate = new X509Certificate2(certFilePath);
+            AddCertToStore(certFilePath,ref store,ref certificate);
+            RemoveCertificateFromStore(ref store, ref certificate);
+            
         }
 
         private static void CertificateNames()
@@ -63,27 +66,14 @@ namespace CodeLibrary
                 + "\r\n-----END CERTIFICATE-----");
         }
 
-        private static void AddCertToStore(string certFilePath)
+        private static void AddCertToStore(string certFilePath,ref X509Store store,ref X509Certificate2 certificate)
         {
-            //Create new X509 store called teststore from the local certificate store.
-            X509Store store = new X509Store("teststore", StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadWrite);
-            X509Certificate2 certificate = new X509Certificate2();
-
-            //Create certificates from certificate files.
             
-            X509Certificate2 certificate1 = new X509Certificate2(certFilePath);
-            //X509Certificate2 certificate2 = new X509Certificate2(certFilePath);
-            //X509Certificate2 certificate3 = new X509Certificate2(certFilePath);
-
-            //Create a collection and add two of the certificates.
-            //X509Certificate2Collection collection = new X509Certificate2Collection();
-            //collection.Add(certificate2);
-            //collection.Add(certificate3);
+            store.Open(OpenFlags.ReadWrite);
+                                  
 
             //Add certificates to the store.
-            store.Add(certificate1);
-            //store.AddRange(collection);
+            store.Add(certificate);
 
             X509Certificate2Collection storecollection = (X509Certificate2Collection)store.Certificates;
             Console.WriteLine("Store name: {0}", store.Name);
@@ -92,33 +82,22 @@ namespace CodeLibrary
             {
                 Console.WriteLine("certificate name: {0}", x509.Subject);
             }
+                   
+            //Close the store.
+            store.Close();
+        }
 
+        private static void RemoveCertificateFromStore(ref X509Store store, ref X509Certificate2 certificate)
+        {
+            store.Open(OpenFlags.ReadWrite);
             //Remove a certificate.
-            store.Remove(certificate1);
+            store.Remove(certificate);
             X509Certificate2Collection storecollection2 = (X509Certificate2Collection)store.Certificates;
             Console.WriteLine("{1}Store name: {0}", store.Name, Environment.NewLine);
             foreach (X509Certificate2 x509 in storecollection2)
             {
                 Console.WriteLine("certificate name: {0}", x509.Subject);
             }
-
-            //Remove a range of certificates.
-            //store.RemoveRange(collection);
-            X509Certificate2Collection storecollection3 = (X509Certificate2Collection)store.Certificates;
-            Console.WriteLine("{1}Store name: {0}", store.Name, Environment.NewLine);
-            if (storecollection3.Count == 0)
-            {
-                Console.WriteLine("Store contains no certificates.");
-            }
-            else
-            {
-                foreach (X509Certificate2 x509 in storecollection3)
-                {
-                    Console.WriteLine("certificate name: {0}", x509.Subject);
-                }
-            }
-
-            //Close the store.
             store.Close();
         }
     }
