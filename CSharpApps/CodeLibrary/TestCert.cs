@@ -85,12 +85,12 @@ namespace CodeLibrary
                    
             //Close the store.
             store.Close();
+            
         }
 
         private static void RemoveCertificateFromStore(ref X509Store store, ref X509Certificate2 certificate)
         {
             store.Open(OpenFlags.ReadWrite);
-            //Remove a certificate.
             store.Remove(certificate);
             X509Certificate2Collection storecollection2 = (X509Certificate2Collection)store.Certificates;
             Console.WriteLine("{1}Store name: {0}", store.Name, Environment.NewLine);
