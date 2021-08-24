@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LnwubK04tmVYcUKQR+utVeNEgy52esZtZdowOWhcOoe8l30W01Ev0qn6qzsUjJoorXTxMuSCwPh2eW4JXg9VJg==",
+  "success": true,
+  "projectFilePath": "C:\\work\\learn\\projects\\c-apps\\CSharpApps\\Package01\\Package01.wapproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.19041.8\\microsoft.windows.sdk.buildtools.10.0.19041.8.nupkg.sha512"
+  ],
+  "logs": []
+}
