@@ -9,7 +9,7 @@
   <Identity
     Name="8927c473-e0fe-4d7f-b999-0b61cd136f0a"
     Publisher="CN=kanurag"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <Properties>
     <DisplayName>Package01</DisplayName>
