@@ -53,11 +53,11 @@ namespace CodeLibrary
         static void CreateCertificate(string certfilepath, string pfxfilepath)
         {
             var ecdsa = ECDsa.Create(); // generate asymmetric key pair
-            var req = new CertificateRequest("cn=testcert", ecdsa, HashAlgorithmName.SHA256);
-            var cert = req.CreateSelfSigned(DateTimeOffset.Now, DateTimeOffset.Now.AddYears(5));
-
+            CertificateRequest certificateRequest = new CertificateRequest("cn=testcert99", ecdsa, HashAlgorithmName.SHA256);
+            X509Certificate2 cert = certificateRequest.CreateSelfSigned(DateTimeOffset.Now, DateTimeOffset.Now.AddYears(5));
+            
             // Create PFX (PKCS #12) with private key
-            File.WriteAllBytes(pfxfilepath, cert.Export(X509ContentType.Pfx, "P@55w0rd"));
+            File.WriteAllBytes(pfxfilepath, cert.Export(X509ContentType.Pfx, "passw0rd"));
 
             // Create Base 64 encoded CER (public key only)
             File.WriteAllText(certfilepath,

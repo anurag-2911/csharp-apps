@@ -28,16 +28,35 @@ namespace ConsoleApp
 
         private static void RunMethod()
         {
-            foreach (var f in Directory.GetFiles(".", "*.dll"))
+            try
             {
-                Assembly assembly = Assembly.LoadFrom(f);
-                Type[] type = assembly.GetTypes();
-                foreach (var item in type)
+                foreach (var f in Directory.GetFiles(".", "*.dll"))
                 {
-                    object obj = Activator.CreateInstance(item);
-                    MethodInfo minfo = item.GetMethod("Test");
-                    minfo.Invoke(obj, null);
+                    Assembly assembly = Assembly.LoadFrom(f);
+                    if (assembly != null)
+                    {
+                        Type[] type = assembly.GetTypes();
+                        if (type != null)
+                        {
+                            foreach (var item in type)
+                            {
+                                object obj = Activator.CreateInstance(item);
+                                if (item != null)
+                                {
+                                    MethodInfo minfo = item.GetMethod("Test");
+                                    if (minfo != null)
+                                    {
+                                        minfo.Invoke(obj, null);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
     }
