@@ -33,12 +33,15 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
     <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\System.Management.Automation.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,8 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddMSIXPackage.cs" />
+    <Compile Include="Impersonator.cs" />
+    <Compile Include="IUploadService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatTest.cs" />
     <Compile Include="TestCert.cs" />
+    <Compile Include="ToTest.cs" />
+    <Compile Include="UploadService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

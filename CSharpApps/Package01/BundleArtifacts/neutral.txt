@@ -1,2 +1,0 @@
-MainPackage=C:\work\learn\projects\c-apps\CSharpApps\Package01\bin\AnyCPU\Debug\Package01_1.0.1.0_AnyCPU_Debug.appx
-SymbolPackage=C:\work\learn\projects\c-apps\CSharpApps\Package01\obj\Debug\Symbols\Package01_1.0.1.0_AnyCPU_Debug.appxsym

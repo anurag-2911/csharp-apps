@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CodeLibrary;
+using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+
 
 namespace ConsoleApp
 {
@@ -12,7 +12,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            // call every method that has name Test
+            //HostWebService();
+            //call every method that has name Test
             try
             {
                 RunMethod();
@@ -21,9 +22,32 @@ namespace ConsoleApp
             {
                 Console.WriteLine(ex.ToString());
             }
-            
+
 
             Console.ReadKey();
+        }
+
+        private static void HostWebService()
+        {
+            Uri baseAddress = new Uri("http://localhost:8080/");
+
+            WebServiceHost svcHost = new WebServiceHost(typeof(UploadService), baseAddress);
+
+            try
+            {
+                svcHost.Open();
+
+                Console.WriteLine("Service is running");
+                Console.WriteLine("Press enter to quit...");
+                Console.ReadLine();
+
+                svcHost.Close();
+            }
+            catch (CommunicationException cex)
+            {
+                Console.WriteLine("An exception occurred: {0}", cex.Message);
+                svcHost.Abort();
+            }
         }
 
         private static void RunMethod()
