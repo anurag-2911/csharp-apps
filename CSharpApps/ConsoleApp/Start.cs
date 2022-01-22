@@ -64,13 +64,16 @@ namespace ConsoleApp
                         {
                             foreach (var item in type)
                             {
-                                object obj = Activator.CreateInstance(item);
-                                if (item != null)
+                                if (item.IsClass)
                                 {
-                                    MethodInfo minfo = item.GetMethod("Test");
-                                    if (minfo != null)
+                                    object obj = Activator.CreateInstance(item);
+                                    if (item != null)
                                     {
-                                        minfo.Invoke(obj, null);
+                                        MethodInfo minfo = item.GetMethod("Test");
+                                        if (minfo != null)
+                                        {
+                                            minfo.Invoke(obj, null);
+                                        }
                                     }
                                 }
                             }

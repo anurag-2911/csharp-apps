@@ -15,24 +15,24 @@ namespace CodeLibrary
     {
         public void Test()
         {
-            Thread t1 = new Thread(ProcessAction01);
-            t1.Name = "t1";
-            t1.Start();
-            Thread t2 = new Thread(ProcessAction012);
-            t2.Name = "t2";
-            t2.Start();
+            //Thread t1 = new Thread(ProcessAction01);
+            //t1.Name = "t1";
+            //t1.Start();
+            //Thread t2 = new Thread(ProcessAction012);
+            //t2.Name = "t2";
+            //t2.Start();
 
-            t1.Join();
-            t2.Join();
+            //t1.Join();
+            //t2.Join();
 
             
-            bool sideLoadNeeded = IsSideLoadNeeded();
+            //bool sideLoadNeeded = IsSideLoadNeeded();
 
-            string baseDirPath = AppDomain.CurrentDomain.BaseDirectory;
-            baseDirPath = baseDirPath.Replace(@"\bin\Debug", "");
+            //string baseDirPath = AppDomain.CurrentDomain.BaseDirectory;
+            //baseDirPath = baseDirPath.Replace(@"\bin\Debug", "");
 
-            string testDataPath = baseDirPath + @"\TestData\msixFiles";
-            ExecuteAsAdmin();
+            //string testDataPath = baseDirPath + @"\TestData\msixFiles";
+            //ExecuteAsAdmin();
 
             //CheckMSIXExistsAndRemove();
 

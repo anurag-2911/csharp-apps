@@ -11,14 +11,14 @@ namespace CodeLibrary
     {
         public void Test()
         {
-            //CertificateNames();
-            string pfxFilePath = @"C:\work\data\userstory\msix\cert\mycert.pfx";
-            string certFilePath = @"C:\work\data\userstory\msix\cert\mycert.cer";
-            CreateCertificate(certFilePath,pfxFilePath);
-            X509Store store = new X509Store("teststore", StoreLocation.LocalMachine);
-            X509Certificate2 certificate = new X509Certificate2(certFilePath);
-            AddCertToStore(certFilePath,ref store,ref certificate);
-            RemoveCertificateFromStore(ref store, ref certificate);
+            ////CertificateNames();
+            //string pfxFilePath = @"C:\work\data\userstory\msix\cert\mycert.pfx";
+            //string certFilePath = @"C:\work\data\userstory\msix\cert\mycert.cer";
+            //CreateCertificate(certFilePath,pfxFilePath);
+            //X509Store store = new X509Store("teststore", StoreLocation.LocalMachine);
+            //X509Certificate2 certificate = new X509Certificate2(certFilePath);
+            //AddCertToStore(certFilePath,ref store,ref certificate);
+            //RemoveCertificateFromStore(ref store, ref certificate);
             
         }
 

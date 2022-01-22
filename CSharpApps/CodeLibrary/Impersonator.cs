@@ -7,6 +7,10 @@ namespace CodeLibrary
 {
     public class Impersonator: IDisposable
     {
+        public Impersonator()
+        {
+
+        }
 		public Impersonator(
 			string userName,
 			string domainName,
