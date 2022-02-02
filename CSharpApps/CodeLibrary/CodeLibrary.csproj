@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AddMSIXPackage.cs" />
     <Compile Include="Impersonator.cs" />
+    <Compile Include="IPAddressParser.cs" />
     <Compile Include="IUploadService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatTest.cs" />

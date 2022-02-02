@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,20 @@ namespace CodeLibrary
         }
         public void Test()
         {
+            IPAddress addr = IPAddress.Parse("win-30qs6lmodrp.epm.blr.novell.com:443/");
+            string[] vs = new string[] { "1", "2", "3" };
+            int i = 1;
+            while(vs.Length > 0)
+            {
+                string val = i.ToString();
+                i++;
+                vs = vs.Except(new string[] { val }).ToArray();
+                if(i==2)
+                {
+                    break;
+                }
+            }
+
             TestChunks();
 
         }

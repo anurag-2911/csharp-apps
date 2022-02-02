@@ -2,41 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Net;
 
 namespace TestWebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Zenworks_Content : ControllerBase
+    public class zenworks_content : ControllerBase
     {
-        [HttpGet("Pulse")]
-        public string TestMethod(string name, string lastname)
-        {
-            ICollection<string> collection = this.HttpContext.Request.Query.Keys;
-            return name  + " " + lastname;
-            
-        }
-        [HttpPost("Upload")]
-        public JsonResult TestMethod()
+        [HttpPost("uploadFile")]
+        public HttpStatusCode TestMethod()
         {
             string outfile = GetOutputFile();
 
             HttpContext curContext = this.HttpContext;
-
+           
+            
             if (curContext != null)
             {
                 WriteToOuputFile(outfile, curContext);
 
             }
-            // If you need it...
 
-            JsonResult jsonResult = new JsonResult("test");
-            return jsonResult;
-            
+            return HttpStatusCode.OK;
+
         }
-
+              
         private static string GetOutputFile()
         {
             string file = @"C:\work\learn\projects\cSharp-apps\CSharpApps\lib\data\test.txt";
@@ -49,16 +41,7 @@ namespace TestWebApp.Controllers
             long? totalBytes = curContext.Request.ContentLength;
             string encoding = curContext.Request.ContentType;
 
-            StringValues fileName = string.Empty;
-            curContext.Request.Query.TryGetValue("fileName", out fileName);
-            StringValues consumerType = string.Empty;
-            curContext.Request.Query.TryGetValue("consumerType", out consumerType);
-            StringValues totalChunks = string.Empty;
-            curContext.Request.Query.TryGetValue("totalChunks", out totalChunks);
-            StringValues currentChunk = string.Empty;
-            curContext.Request.Query.TryGetValue("currentChunk", out currentChunk);
-            StringValues lastModifiedTime = string.Empty;
-            curContext.Request.Query.TryGetValue("lastModifiedTime", out lastModifiedTime);
+            StringValues currentChunk = GetQueryStringParameters(curContext);
 
             byte[] buffer = new byte[totalBytes.Value];
             curContext.Request.Body.ReadAsync(buffer, 0, Convert.ToInt32(totalBytes.Value));
@@ -80,7 +63,24 @@ namespace TestWebApp.Controllers
             FileStream outputStream = new FileStream(outfile, FileMode.Append);
             outputStream.Write(buffer, 0, Convert.ToInt32(totalBytes.Value));
             outputStream.Close();
-            
+
+        }
+
+        private static StringValues GetQueryStringParameters(HttpContext curContext)
+        {
+            StringValues fileName = string.Empty;
+            curContext.Request.Query.TryGetValue("fileName", out fileName);
+            StringValues consumerType = string.Empty;
+            curContext.Request.Query.TryGetValue("consumerType", out consumerType);
+            StringValues totalChunks = string.Empty;
+            curContext.Request.Query.TryGetValue("totalChunks", out totalChunks);
+            StringValues currentChunk = string.Empty;
+            curContext.Request.Query.TryGetValue("currentChunk", out currentChunk);
+            StringValues lastModifiedTime = string.Empty;
+            curContext.Request.Query.TryGetValue("lastModifiedTime", out lastModifiedTime);
+            StringValues overWrite = string.Empty;
+            curContext.Request.Query.TryGetValue("overWrite", out overWrite);
+            return currentChunk;
         }
 
     }
