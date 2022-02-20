@@ -25,7 +25,7 @@ namespace TestWebApp.Controllers
 
             }
 
-            return HttpStatusCode.OK;
+            return HttpStatusCode.BadRequest;
 
         }
               

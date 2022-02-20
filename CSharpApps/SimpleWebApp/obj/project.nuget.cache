@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HdEqZXebdd6qkrv8HUqcBGeLANCVmwN5yllkb0M/JbLaRcYJRcpJlpfNEogjWt904r+LsxQ1iqbY9rlK06cUKg==",
+  "success": true,
+  "projectFilePath": "C:\\work\\learn\\projects\\cSharp-apps\\CSharpApps\\SimpleWebApp\\SimpleWebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KAnurag.CORPDOM\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,9 +1,6 @@
-﻿using CodeLibrary;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
-using System.ServiceModel;
-using System.ServiceModel.Web;
 
 
 namespace ConsoleApp
@@ -27,28 +24,7 @@ namespace ConsoleApp
             Console.ReadKey();
         }
 
-        private static void HostWebService()
-        {
-            Uri baseAddress = new Uri("http://localhost:8080/");
-
-            WebServiceHost svcHost = new WebServiceHost(typeof(UploadService), baseAddress);
-
-            try
-            {
-                svcHost.Open();
-
-                Console.WriteLine("Service is running");
-                Console.WriteLine("Press enter to quit...");
-                Console.ReadLine();
-
-                svcHost.Close();
-            }
-            catch (CommunicationException cex)
-            {
-                Console.WriteLine("An exception occurred: {0}", cex.Message);
-                svcHost.Abort();
-            }
-        }
+      
 
         private static void RunMethod()
         {
@@ -64,18 +40,22 @@ namespace ConsoleApp
                         {
                             foreach (var item in type)
                             {
-                                if (item.IsClass)
+                                try
                                 {
-                                    object obj = Activator.CreateInstance(item);
-                                    if (item != null)
+                                    if (item.IsClass)
                                     {
-                                        MethodInfo minfo = item.GetMethod("Test");
-                                        if (minfo != null)
+                                        object obj = Activator.CreateInstance(item);
+                                        if (item != null)
                                         {
-                                            minfo.Invoke(obj, null);
+                                            MethodInfo minfo = item.GetMethod("Test");
+                                            if (minfo != null)
+                                            {
+                                                minfo.Invoke(obj, null);
+                                            }
                                         }
                                     }
                                 }
+                                catch (Exception) { }
                             }
                         }
                     }
