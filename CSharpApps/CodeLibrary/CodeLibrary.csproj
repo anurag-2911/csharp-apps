@@ -65,6 +65,7 @@
     <Compile Include="IUploadService.cs" />
     <Compile Include="JSONParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SortArrayOfParentChild.cs" />
     <Compile Include="StatTest.cs" />
     <Compile Include="TestCert.cs" />
     <Compile Include="TestCertificateUtil.cs" />
