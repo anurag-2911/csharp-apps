@@ -1,9 +1,0 @@
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\bin\Debug\PShellCheck.exe.config
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\bin\Debug\PShellCheck.exe
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\bin\Debug\PShellCheck.pdb
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\bin\Debug\System.Management.Automation.dll
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\obj\Debug\PShellCheck.csproj.AssemblyReference.cache
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\obj\Debug\PShellCheck.csproj.CoreCompileInputs.cache
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\obj\Debug\PShellCheck.csproj.CopyComplete
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\obj\Debug\PShellCheck.exe
-C:\work\learn\projects\cSharp-apps\CSharpApps\PShellCheck\obj\Debug\PShellCheck.pdb

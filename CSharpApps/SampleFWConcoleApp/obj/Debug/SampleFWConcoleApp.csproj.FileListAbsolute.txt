@@ -1,8 +1,0 @@
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\bin\Debug\SampleFWConcoleApp.exe.config
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\bin\Debug\SampleFWConcoleApp.exe
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\bin\Debug\SampleFWConcoleApp.pdb
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\obj\Debug\SampleFWConcoleApp.csproj.AssemblyReference.cache
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\obj\Debug\SampleFWConcoleApp.csproj.SuggestedBindingRedirects.cache
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\obj\Debug\SampleFWConcoleApp.csproj.CoreCompileInputs.cache
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\obj\Debug\SampleFWConcoleApp.exe
-C:\work\learn\projects\cSharp-apps\CSharpApps\SampleFWConcoleApp\obj\Debug\SampleFWConcoleApp.pdb
