@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="practice\LoopHoles.cs" />
     <Compile Include="util\AddMSIXPackage.cs" />
     <Compile Include="util\FileStreamUploader.cs" />
     <Compile Include="util\Impersonator.cs" />
@@ -78,5 +79,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
