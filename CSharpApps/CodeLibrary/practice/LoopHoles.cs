@@ -10,7 +10,27 @@ namespace CodeLibrary.practice
     {
         public void Test()
         {
+            for (int i = 0; i < 5; i++)
+            {
+                if (true)
+                {
+                    if(true)
+                    {
+                        if(!true)
+                        {
+                            
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
 
+                }
+            }
         }
     }
 }
